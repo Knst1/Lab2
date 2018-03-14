@@ -2,13 +2,12 @@
 
 void RevertString(char *str)
 {
-    int c = strlen(str);
-    int j = 0;
-  char *t_str;
-  t_str = malloc(sizeof(char) * (c + 1));
-    for (int i = c - 1; i >= 0; i--)
-        t_str[j++] = str[i];
-    for (int i = 0; i <c; i++)
-        str[i] = t_str[i];
-    free(t_str);
+    int i, j;
+     char c;
+     unsigned len = strlen(str);
+     for (i = 0, j = len - 1; i < j; i++, j--) {
+         c = str[i];
+         str[i] = str[j];
+         str[j] = c;
+     }
 }
